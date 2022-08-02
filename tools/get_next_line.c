@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 17:09:37 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 05:13:13 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 05:14:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ static char	*ft_strjoin1(char *s, char c)
 	i = 0;
 	while (s[i])
 		i++;
-	str = (char *)malloc(i + 2)
-	if (!(str))
+	if (!(str = (char *)malloc(i + 2)))
 		return (0);
 	i = 0;
 	while (s[i])
@@ -41,8 +40,7 @@ int	get_next_line(int fd, char **line)
 	int		flag;
 
 	buffer = (char *)malloc(2);
-	*line = (char *)malloc(1);
-	if (!line || !(*line) || !buffer)
+	if (!line || !(*line = (char *)malloc(1)) || !buffer)
 		return (-1);
 	*line[0] = '\0';
 	while ((flag = read(fd, buffer, 1)) > 0)

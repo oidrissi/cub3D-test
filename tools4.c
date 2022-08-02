@@ -6,7 +6,7 @@
 /*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:38:07 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 01:42:43 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 05:03:04 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,67 +64,75 @@ int	map_size(char **line)
 {
 	char	**save;
 	int		i;
+	t_data	*m;
 
+	m = g();
 	save = line;
-	g_game_data.map.columns = 0;
-	g_game_data.map.rows = 1;
+	m->g_game_data.map.columns = 0;
+	m->g_game_data.map.rows = 1;
 	i = 0;
 	while (*save)
 	{
 		i = ft_strlen(*save);
-		if (i > g_game_data.map.columns)
-			g_game_data.map.columns = i;
-		g_game_data.map.rows++;
+		if (i > m->g_game_data.map.columns)
+			m->g_game_data.map.columns = i;
+		m->g_game_data.map.rows++;
 		save++;
 	}
-	g_game_data.map.columns += 2;
+	m->g_game_data.map.columns += 2;
 	return (1);
 }
 
 int	helper_textures(void *tmp, int useless, int a)
 {
+	t_data	*m;
+
+	m = g();
 	if (!(tmp))
 		return (0);
-	g_textures[1]
+	m->g_textures[1]
 		= (unsigned int*)mlx_get_data_addr(tmp, &useless, &useless, &useless);
 	free(tmp);
-	tmp = mlx_xpm_file_to_image(g_mlx_ptr, g_game_data.paths.we, &a, &a);
+	tmp = mlx_xpm_file_to_image(m->g_mlx_ptr, m->g_game_data.paths.we, &a, &a);
 	if (!(tmp))
 		return (0);
-	g_textures[2]
+	m->g_textures[2]
 		= (unsigned int*)mlx_get_data_addr(tmp, &useless, &useless, &useless);
 	free(tmp);
-	tmp = mlx_xpm_file_to_image(g_mlx_ptr, g_game_data.paths.ea, &a, &a);
+	tmp = mlx_xpm_file_to_image(m->g_mlx_ptr, m->g_game_data.paths.ea, &a, &a);
 	if (!(tmp))
 		return (0);
-	g_textures[3]
+	m->g_textures[3]
 		= (unsigned int*)mlx_get_data_addr(tmp, &useless, &useless, &useless);
 	return (1);
 }
 
 int	player_rotation_angle(int i, int j)
 {
-	if (g_game_data.map.map[j + (i * g_game_data.map.columns)] == 'N')
+	t_data	*m;
+
+	m = g();
+	if (m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)] == 'N')
 	{
-		g_player.rotation_angle = 270;
+		m->g_player.rotation_angle = 270;
 		return (1);
 	}
-	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+	else if (m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)]
 		== 'S')
 	{
-		g_player.rotation_angle = 90;
+		m->g_player.rotation_angle = 90;
 		return (1);
 	}
-	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+	else if (m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)]
 		== 'E')
 	{
-		g_player.rotation_angle = 0;
+		m->g_player.rotation_angle = 0;
 		return (1);
 	}
-	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+	else if (m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)]
 		== 'W')
 	{
-		g_player.rotation_angle = 180;
+		m->g_player.rotation_angle = 180;
 		return (1);
 	}
 	return (0);

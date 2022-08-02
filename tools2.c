@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 19:54:17 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/30 20:56:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 04:32:11 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ float	normalise_angle(float angle)
 
 void	initializer(void)
 {
-	g_ray.wallhitx = 0;
-	g_ray.wallhity = 0;
-	g_ray.distance = 0;
+	g()->g_ray.wallhitx = 0;
+	g()->g_ray.wallhity = 0;
+	g()->g_ray.distance = 0;
 }

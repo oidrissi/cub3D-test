@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:36:02 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 20:56:55 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 04:32:11 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 void	left_wall_check(void)
 {
-	g_ray.v_ray_data.foundvertwallhit = 1;
-	if (g_ray.rayleft)
-		g_ray.v_ray_data.vertwallhitx
-			= ++g_ray.v_ray_data.nextverttouchx;
+	g()->g_ray.v_ray_data.foundvertwallhit = 1;
+	if (g()->g_ray.rayleft)
+		g()->g_ray.v_ray_data.vertwallhitx
+			= ++g()->g_ray.v_ray_data.nextverttouchx;
 	else
-		g_ray.v_ray_data.vertwallhitx = g_ray.v_ray_data.nextverttouchx;
-	g_ray.v_ray_data.vertwallhity
-		= g_ray.v_ray_data.nextverttouchy;
+		g()->g_ray.v_ray_data.vertwallhitx = g()->g_ray.v_ray_data.nextverttouchx;
+	g()->g_ray.v_ray_data.vertwallhity
+		= g()->g_ray.v_ray_data.nextverttouchy;
 }

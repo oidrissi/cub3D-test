@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:41:24 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 17:22:43 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 04:34:34 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int	map_check(void)
 
 	i = 1;
 	p = 0;
-	map = g_game_data.map.map;
+	map = g()->g_game_data.map.map;
 	if (!map)
 		return (-1);
-	while (i < g_game_data.map.rows)
+	while (i < g()->g_game_data.map.rows)
 	{
 		j = 1;
-		while (j < g_game_data.map.columns - 1)
+		while (j < g()->g_game_data.map.columns - 1)
 		{
 			if (check_stuff(map, i, j, &p))
 				return (-1);
@@ -79,7 +79,7 @@ int	set_route(char **lines)
 {
 	if (!lines || !*lines)
 		return (-1);
-	g_fre = lines;
+	g()->g_fre = lines;
 	while (lines)
 	{
 		if (process_input(lines) == -1)
@@ -94,7 +94,7 @@ int	set_route(char **lines)
 		else
 			lines++;
 	}
-	if (g_game_data.check != 0x11111111)
+	if (g()->g_game_data.check != 0x11111111)
 		return (-1);
 	if (map_check() == -1)
 		return (-1);

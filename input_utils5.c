@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils5.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:41:14 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 16:38:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 04:33:08 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	check_p(char *map, int *p)
 	int	j;
 
 	i = 0;
-	while (i < g_game_data.map.rows)
+	while (i < g()->g_game_data.map.rows)
 	{
 		j = 0;
-		while (j < g_game_data.map.columns)
+		while (j < g()->g_game_data.map.columns)
 		{
 			if (ft_strchr("NWES", map[j
-						+ (i * g_game_data.map.columns)]) != NULL)
+						+ (i * g()->g_game_data.map.columns)]) != NULL)
 				(*p)++;
 			j++;
 		}
@@ -38,13 +38,13 @@ int	check_all(char *map)
 	int	j;
 
 	i = 0;
-	while (i < g_game_data.map.rows)
+	while (i < g()->g_game_data.map.rows)
 	{
 		j = 0;
-		while (j < g_game_data.map.columns)
+		while (j < g()->g_game_data.map.columns)
 		{
 			if (ft_strchr("NWES01234", map[j
-						+ (i * g_game_data.map.columns)]) == NULL)
+						+ (i * g()->g_game_data.map.columns)]) == NULL)
 				return (-1);
 			j++;
 		}

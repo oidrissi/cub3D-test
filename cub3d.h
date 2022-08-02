@@ -6,7 +6,7 @@
 /*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:58:42 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 03:03:14 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 04:35:31 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define RIGHT_KEY 124
 # define ESC 53
 # define RAD_ANGLE(x) ((x * M_PI) / 180)
-# define DEG_ANGLE(x) ((x * 180) / M_PI)
+# define DEg_ANGLE(x) ((x * 180) / M_PI)
 # define NBR_SPR 10000
 
 typedef struct	s_h_ray_data
@@ -171,24 +171,29 @@ typedef	struct	s_sprite
 	float	distance;
 }				t_sprite;
 
-void			*g_mlx_ptr;
-void			*g_win_ptr;
-int				g_num_rays;
-t_cast_data		g_ray;
-t_player		g_player;
-t_game_data		g_game_data;
-t_img_data		g_img;
-t_rip_data		g_strip;
-int				g_ray_distance[5120];
-unsigned int	*g_textures[5];
-t_sprite		g_spr[NBR_SPR];
-int				g_num_spr;
-int				g_speed;
-char			**g_fre;
-double			g_start_time;
-int				g_type;
-int				g_spr_id;
-int				g_argc;
+typedef struct s_data
+{
+    void			*g_mlx_ptr;
+    void			*g_win_ptr;
+    int				g_num_rays;
+    t_cast_data		g_ray;
+    t_player		g_player;
+    t_game_data		g_game_data;
+    t_img_data		g_img;
+    t_rip_data		g_strip;
+    int				g_ray_distance[5120];
+    unsigned int	*g_textures[5];
+    t_sprite		g_spr[NBR_SPR];
+    int				g_num_spr;
+    int				g_speed;
+    char			**g_fre;
+    double			g_start_time;
+    int				g_type;
+    int				g_spr_id;
+    int				g_argc;
+}               t_data;
+
+t_data          *g(void);
 
 char			*ft_strrchr(const char *s, int c);
 void			mlx_img_mod(int x, int y, int color);

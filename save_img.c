@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 02:48:11 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 17:47:45 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 04:33:20 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static	int	write_header(int fd)
 	plane_nbr = 1;
 	header_size = 40;
 	write(fd, &header_size, 4);
-	write(fd, &g_game_data.res.width, 4);
-	write(fd, &g_game_data.res.height, 4);
+	write(fd, &g()->g_game_data.res.width, 4);
+	write(fd, &g()->g_game_data.res.height, 4);
 	write(fd, &plane_nbr, 2);
-	write(fd, &g_img.bpp, 2);
+	write(fd, &g()->g_img.bpp, 2);
 	while (++i < 28)
 		write(fd, "\0", 1);
 	return ((i == 27));
@@ -36,12 +36,12 @@ static	int	write_data(int fd)
 	int					y;
 	int					x;
 
-	y = g_game_data.res.height;
+	y = g()->g_game_data.res.height;
 	while (y--)
 	{
-		x = g_game_data.res.width;
+		x = g()->g_game_data.res.width;
 		while (x--)
-			if (write(fd, &(g_img.addr)[(y * g_game_data.res.width) + x], 4)
+			if (write(fd, &(g()->g_img.addr)[(y * g()->g_game_data.res.width) + x], 4)
 			< 0)
 				return (0);
 	}
@@ -55,8 +55,8 @@ static	void	screen_shot(void)
 	int				first_pix_byte;
 
 	first_pix_byte = 14 + 40 + 4;
-	fd_size = 14 + 40 + 4 + ((g_game_data.res.height
-				* g_game_data.res.width) * 3);
+	fd_size = 14 + 40 + 4 + ((g()->g_game_data.res.height
+				* g()->g_game_data.res.width) * 3);
 	fd = open("screenshot.bmp", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 	if (fd < 0)

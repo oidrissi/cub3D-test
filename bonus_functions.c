@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:56:39 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 18:06:12 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 03:03:52 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	byebye(void)
 {
 	if (g_fre)
 		free(g_fre);
-	xflush();
 	free_sprite();
 	system("killall afplay");
 	exit(0);

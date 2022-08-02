@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:41:34 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 17:55:12 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 03:02:12 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*ft_calloc(size_t n, size_t size)
 		n = 1;
 		size = 1;
 	}
-	str = MALLOC(n * size);
+	str = malloc(n * size);
 	if (str == NULL)
 		return (NULL);
 	ft_bzero(str, n * size);

@@ -6,7 +6,7 @@
 /*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:07:06 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/31 20:55:14 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 03:02:18 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	d_job(char const *str, char c, int j, char **ret)
 		if (str)
 		{
 			k = 0;
-			ret[j] = (char *)MALLOC(sizeof(char) * (l(str, 0, c) + 1));
+			ret[j] = (char *)malloc(sizeof(char) * (l(str, 0, c) + 1));
 			if (!(ret[j]))
 			{
 				while (j)

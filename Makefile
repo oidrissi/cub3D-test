@@ -18,10 +18,9 @@ SRCS_BONUS = 	cub3d.c	read_input.c	input_utils1.c	input_utils2.c			\
 		event_handler.c	tools.c	tools2.c	tools3.c	tools4.c				\
 		bonus_functions.c	bonus_functions2.c	tools5.c
 TOOLS_DIR = tools/
-TOOLS =	xexit.c  xmalloc.c														\
-		get_next_line.c															\
+TOOLS =	get_next_line.c															\
 		get_next_line_utils.c
-INCS = cub3d.h	tools/get_next_line.h	 tools/xmalloc.h
+INCS = cub3d.h	tools/get_next_line.h	 
 # *****************************************************************************
 
 # ********************************** FLAGS ************************************

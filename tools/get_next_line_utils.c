@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:09:50 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 03:00:16 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 02:52:42 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!ft_strlen(s1) && !ft_strlen(s2))
 		return (ft_strdup(s2));
-	ret = (char *)malloc(sizeof(char)) * ft_strlen(s1) + ft_strlen(s2) + 1;
+	ret = (char *)malloc((sizeof(char)) * ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!(ret))
 		return (NULL);
 	while (s1[i])

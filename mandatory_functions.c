@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandatory_functions.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 04:09:49 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 16:39:33 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 03:03:47 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	byebye(void)
 {
 	if (g_fre)
 		free(g_fre);
-	xflush();
 	free_sprite();
 	exit(0);
 }

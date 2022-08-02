@@ -6,7 +6,7 @@
 /*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:58:42 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 01:41:03 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 03:03:14 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include "tools/get_next_line.h"
 # include <math.h>
 # include <time.h>
-# include "tools/xmalloc.h"
 # define MALLOC xmalloc
 # define FREE xfree
 # define FLUSH xflush

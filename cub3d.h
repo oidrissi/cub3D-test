@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:58:42 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/31 19:59:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 01:41:03 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,10 +318,13 @@ void			move_right(void);
 void			move_left(void);
 void			new_frame(void);
 int				fix_axis(void);
-void			helper_textures(void *tmp, int useless, int a);
-void			player_rotation_angle(void);
+int				helper_textures(void *tmp, int useless, int a);
+int				player_rotation_angle(int x, int y);
 void			left_wall_check(void);
 void			initializer(void);
-void 			update_walls(int x, int y, int xoffset, int yoffset);
+int				update_walls(int x, int y, int xoffset, int yoffset);
+int				helper_resolution(char **line);
+int				ceiling_filler(int x, int y, float top_pixel);
+int				xoffset_value(void);
 
 #endif

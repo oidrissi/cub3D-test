@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:18:46 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/31 20:03:12 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 01:39:59 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,7 @@ void	react(float x, float top_pixel, float wallstripheight)
 
 	y = 0;
 	g_type = 0;
-	while (y < top_pixel && (y < g_game_data.res.height))
-		img_update(x, y++, rgbtoint(g_game_data.c.r,
-				g_game_data.c.g, g_game_data.c.b));
-	y = ceiling_filler(x, y);
+	y = ceiling_filler(x, y, top_pixel);
 	xoffset = xoffset_value();
 	g_type = 1;
 	while (y < top_pixel + wallstripheight && y < g_game_data.res.height)

@@ -24,13 +24,12 @@ int	helper_resolution(char **line)
 	return (1);
 }
 
-int	xoffset_value(int xoffset)
+int	xoffset_value(void)
 {
 	if (g_ray.washitvertical)
-		xoffset = (int)g_ray.wallhity % T_S;
+		return ((int)g_ray.wallhity % T_S);
 	else
-		xoffset = (int)g_ray.wallhitx % T_S;
-	return (xoffset);
+		return ((int)g_ray.wallhitx % T_S);
 }
 
 int	update_walls(int x, int y, int xoffset, int yoffset)
@@ -43,5 +42,13 @@ int	update_walls(int x, int y, int xoffset, int yoffset)
 		img_update(x, y++, g_textures[0][(yoffset * T_S) + xoffset]);
 	else if (g_ray.raydown && !g_ray.washitvertical)
 		img_update(x, y++, g_textures[1][(yoffset * T_S) + xoffset]);
+	return (y);
+}
+
+int	ceiling_filler(int x, int y, float top_pixel)
+{
+	while (y < top_pixel && (y < g_game_data.res.height))
+		img_update(x, y++, rgbtoint(g_game_data.c.r,
+				g_game_data.c.g, g_game_data.c.b));
 	return (y);
 }

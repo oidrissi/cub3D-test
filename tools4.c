@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:38:07 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 20:52:33 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 01:42:43 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	map_size(char **line)
 	return (1);
 }
 
-void	helper_textures(void *tmp, int useless, int a)
+int	helper_textures(void *tmp, int useless, int a)
 {
 	if (!(tmp))
 		return (0);
@@ -99,31 +99,33 @@ void	helper_textures(void *tmp, int useless, int a)
 		return (0);
 	g_textures[3]
 		= (unsigned int*)mlx_get_data_addr(tmp, &useless, &useless, &useless);
+	return (1);
 }
 
-void	player_rotation_angle(void)
+int	player_rotation_angle(int i, int j)
 {
-	if ((g_game_data.map.map[j + (i * g_game_data.map.columns)] == 'N'))
+	if (g_game_data.map.map[j + (i * g_game_data.map.columns)] == 'N')
 	{
 		g_player.rotation_angle = 270;
-		return ;
+		return (1);
 	}
-	else if ((g_game_data.map.map[j + (i * g_game_data.map.columns)]
-			== 'S'))
+	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+		== 'S')
 	{
 		g_player.rotation_angle = 90;
-		return ;
+		return (1);
 	}
-	else if ((g_game_data.map.map[j + (i * g_game_data.map.columns)]
-			== 'E'))
+	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+		== 'E')
 	{
 		g_player.rotation_angle = 0;
-		return ;
+		return (1);
 	}
-	else if ((g_game_data.map.map[j + (i * g_game_data.map.columns)]
-			== 'W'))
+	else if (g_game_data.map.map[j + (i * g_game_data.map.columns)]
+		== 'W')
 	{
 		g_player.rotation_angle = 180;
-		return ;
+		return (1);
 	}
+	return (0);
 }

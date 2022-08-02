@@ -9,7 +9,7 @@ SRCS = 	cub3d.c	read_input.c	input_utils1.c	input_utils2.c	input_utils3.c	\
 		input_utils4.c	input_utils5.c	store_map.c	event_handler.c				\
 		player_movement.c	ray_casting.c	rendering.c							\
 		sprite.c	memory_handling.c	save_img.c	ft_split.c					\
-		tools.c	tools2.c	tools3.c	tools4.c								\
+		tools5.c	tools.c	tools2.c	tools3.c	tools4.c					\
 		mandatory_functions.c mandatory_functions2.c
 SRCS_BONUS = 	cub3d.c	read_input.c	input_utils1.c	input_utils2.c			\
 		input_utils3.c	input_utils4.c	input_utils5.c	store_map.c				\

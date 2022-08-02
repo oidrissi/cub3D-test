@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:15:30 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 20:56:22 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 01:44:42 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	h_ray_wall_check(void)
 				g_ray.h_ray_data.nexthorztouchy))
 		{
 			(g_ray.h_ray_data.foundhorzwallhit = 1);
-			g_ray.h_ray_data.horzwallhitx
-				= g_ray.h_ray_data.nexthorztouchx;
+			g_ray.h_ray_data.horzwallhitx = g_ray.h_ray_data.nexthorztouchx;
 			if (g_ray.rayup)
-				g_ray.h_ray_data.horzwallhity++;
+				g_ray.h_ray_data.horzwallhity
+					= ++g_ray.h_ray_data.nexthorztouchy;
 			else
 				g_ray.h_ray_data.horzwallhity = g_ray.h_ray_data.nexthorztouchy;
 			break ;

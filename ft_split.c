@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 14:07:06 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 17:59:19 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/31 20:55:14 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ static int	d_job(char const *str, char c, int j, char **ret)
 		if (str)
 		{
 			k = 0;
-			ret[j] = (char *)MALLOC(sizeof(char) * (l(str, 0, c) + 1);
-			if (!(ret[j])))
+			ret[j] = (char *)MALLOC(sizeof(char) * (l(str, 0, c) + 1));
+			if (!(ret[j]))
 			{
 				while (j)
 					free(ret[--j]);

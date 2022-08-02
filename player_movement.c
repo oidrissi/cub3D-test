@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:20:40 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/07/30 20:46:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 01:44:14 by ael-ghem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	init_player_pos(void)
 		{
 			g_player.x = (j + 0.5) * T_S;
 			g_player.y = (i + 0.5) * T_S;
-			player_rotation_angle();
+			if (player_rotation_angle(i, j))
+				return ;
 		}
 	}
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 17:09:37 by ael-ghem          #+#    #+#             */
-/*   Updated: 2019/11/01 21:37:26 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 03:02:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void		get_rest(char *buf, char *save)
+static void	get_rest(char *buf, char *save)
 {
 	int			i;
 	int			j;
@@ -30,9 +30,9 @@ static void		get_rest(char *buf, char *save)
 	save[j] = '\0';
 }
 
-static void		get_line(char **line, char *rest)
+static void	get_line(char **line, char *rest)
 {
-	int			i;
+	int	i;
 
 	i = 0;
 	while (rest[i] && rest[i] != '\n')
@@ -40,7 +40,7 @@ static void		get_line(char **line, char *rest)
 	*line = ft_substr(rest, 0, i);
 }
 
-static int		read_to_buf(int fd, char **line, int *ret)
+static int	read_to_buf(int fd, char **line, int *ret)
 {
 	char	*tmp;
 	char	*buf;
@@ -48,9 +48,11 @@ static int		read_to_buf(int fd, char **line, int *ret)
 	*ret = 1;
 	while (ft_strchr(*line, '\n') == NULL && *ret != 0)
 	{
-		if (!(buf = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!(buf))
 			return (-1);
-		if ((*ret = read(fd, buf, BUFFER_SIZE)) < 0)
+		*ret = read(fd, buf, BUFFER_SIZE);
+		if (*ret < 0)
 			return (-1);
 		buf[*ret] = '\0';
 		tmp = *line;
@@ -61,7 +63,7 @@ static int		read_to_buf(int fd, char **line, int *ret)
 	return (1);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	rest[1025][BUFFER_SIZE + 1] = {""};
 	int			ret;
@@ -87,5 +89,7 @@ int				get_next_line(int fd, char **line)
 	get_rest(tmp, rest[fd]);
 	get_line(line, tmp);
 	free(tmp);
-	return ((ret > 0) ? 1 : 0);
+	if (ret > 0)
+		return (1);
+	return (0);
 }

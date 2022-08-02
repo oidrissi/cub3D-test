@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:09:50 by ael-ghem          #+#    #+#             */
-/*   Updated: 2019/11/01 20:20:13 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/02 03:00:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!ft_strlen(s1) && !ft_strlen(s2))
 		return (ft_strdup(s2));
-	if (!(ret = (char *)malloc(sizeof(char) *
-		(ft_strlen(s1) + ft_strlen(s2) + 1))))
+	ret = (char *)malloc(sizeof(char)) * ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(ret))
 		return (NULL);
 	while (s1[i])
 	{
@@ -51,7 +51,8 @@ char	*ft_strdup(const char *s1)
 	if (s1)
 	{
 		lensrc = (int)ft_strlen(s1);
-		if (!(ptr = (char*)malloc(lensrc + 1)))
+		ptr = (char *)malloc(lensrc + 1);
+		if (!(ptr))
 			return (0);
 		while (s1[++i])
 			ptr[i] = s1[i];
@@ -62,7 +63,7 @@ char	*ft_strdup(const char *s1)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (s)
@@ -79,7 +80,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (len > ft_strlen(s + start))
 		len = ft_strlen(s + start);
-	if (!(sub = (char*)malloc(sizeof(char) * len + 1)))
+	sub = (char *)malloc(sizeof(char) * len + 1);
+	if (!(sub))
 		return (NULL);
 	while (s[i + start] && len--)
 	{
@@ -92,7 +94,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
+	size_t	i;
 
 	i = -1;
 	if (!s)
@@ -100,9 +102,9 @@ char	*ft_strchr(const char *s, int c)
 	while (s[++i])
 	{
 		if (s[i] == c)
-			return ((char*)&s[i]);
+			return ((char *)&s[i]);
 	}
 	if (s[i] == c)
-		return ((char*)&s[i]);
+		return ((char *)&s[i]);
 	return (0);
 }

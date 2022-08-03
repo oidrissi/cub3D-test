@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-ghem <ael-ghem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:56:39 by ael-ghem          #+#    #+#             */
-/*   Updated: 2022/08/02 04:50:47 by ael-ghem         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:23:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,18 @@ void	sp_pos(void)
 		j = -1;
 		while (++j < m->g_game_data.map.columns && m->g_num_spr < NBR_SPR)
 		{
-			if (m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)] == '2'
-				|| m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)] == '3'
+			if (m->g_game_data.map.map[j
+					+ (i * m->g_game_data.map.columns)] == '2'
+				|| m->g_game_data.map.map[j
+					+ (i * m->g_game_data.map.columns)] == '3'
 				|| m->g_game_data.map.map[j
 					+ (i * m->g_game_data.map.columns)] == '4')
 			{
 				m->g_spr[m->g_num_spr].x = j * T_S + T_S / 2;
 				m->g_spr[m->g_num_spr].y = i * T_S + T_S / 2;
 				init_sprite(m->g_num_spr++,
-					m->g_game_data.map.map[j + (i * m->g_game_data.map.columns)]);
+					m->g_game_data.map.map[j
+					+ (i * m->g_game_data.map.columns)]);
 			}
 		}
 	}
